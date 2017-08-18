@@ -1,0 +1,14 @@
+.nav {
+  max-width: $max-width;
+
+  background: $brand-black;
+
+  &-logo {
+    max-width: $max-content-width;
+
+    margin: auto;
+    padding: $gutter * 3 0;
+
+    color: $brand-red;
+  }
+}
