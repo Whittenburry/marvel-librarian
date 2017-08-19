@@ -1,5 +1,27 @@
 .outer-container {
-  max-width: $max-width;
+  display: flex;
+  flex-direction: row;
+  max-width: $max-content-width;
 
   margin: auto;
+}
+
+.inner-container {
+  display: flex;
+  flex-basis: $max-content-width;
+  flex-direction: column;
+
+  margin: $gutter 0;
+  padding: $gutter;
+
+  border: $brand-border;
+}
+
+.first-column {
+  max-width: (100% / 3);
+  margin-right: $gutter;
+}
+
+.second-column {
+  min-width: (100% / 3) * 2;
 }
