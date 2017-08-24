@@ -1,7 +1,13 @@
 // @import 'yoga';
 // @import 'normalize';
 
-// $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
-// @import 'font-awesome';
+$fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
+@import 'font-awesome';
 @import 'variables';
 @import 'box-sizing';
+@import 'base';
+@import 'grid';
+@import 'nav';
+@import 'section';
+@import 'list-item';
+@import 'footer';

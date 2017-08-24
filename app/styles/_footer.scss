@@ -1,0 +1,25 @@
+.footer-container {
+  margin: auto;
+
+  background: $brand-black;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+
+  max-width: $max-content-width;
+  margin: auto;
+
+  &__copyright {
+    padding: $gutter;
+
+    color: $brand-red;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: $brand-tan;
+      cursor: pointer;
+    }
+  }
+}

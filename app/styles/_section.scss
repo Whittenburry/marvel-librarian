@@ -1,0 +1,18 @@
+.section {
+  flex-direction: column;
+
+  margin: 0 0 $gutter * 2;
+
+  &__heading {
+    border-bottom: $brand-border;
+  }
+
+  &__ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin: $gutter 0 0;
+    padding: 0 $gutter;
+  }
+}

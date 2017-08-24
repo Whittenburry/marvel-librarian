@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+
+  background: $brand-grey;
+  // background: #242329; darker theme
+
+  color: $brand-light-grey;
+
+  font-family: 'Marvel', sans-serif;
+}
+
+section {
+  display: flex;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0 0 0 1%;
+}
+
+ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
