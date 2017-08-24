@@ -1,13 +1,14 @@
 .li-item {
   display: flex;
-  flex-basis: $max-width / 4;
+  flex-basis: $max-width / 4.5;
   flex-direction: column;
 
+  margin: $gutter 0;
+
   &__img-box {
-    display: flex;
 
     &__img {
-      max-width: $max-width;
+      width: 100%;
     }
   }
 }
