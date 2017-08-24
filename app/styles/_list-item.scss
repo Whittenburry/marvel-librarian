@@ -1,0 +1,13 @@
+.li-item {
+  display: flex;
+  flex-basis: $max-width / 4;
+  flex-direction: column;
+
+  &__img-box {
+    display: flex;
+
+    &__img {
+      max-width: $max-width;
+    }
+  }
+}
