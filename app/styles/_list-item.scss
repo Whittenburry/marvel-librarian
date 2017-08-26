@@ -5,11 +5,17 @@
   flex-grow: 1;
   flex-shrink: 1;
 
-  margin: $gutter;
+  max-height: 10rem;
+
+  margin: $gutter $gutter 0;
+
+  overflow: hidden;
 
   &__img-box {
     position: relative;
+
     width: 100%;
+
     border-radius: $gutter;
     overflow: hidden;
 
@@ -31,7 +37,7 @@
   }
 
   &__text-box {
-    background-color: $brand-grey;
+    // background-color: $brand-grey;
 
     &__name {
       margin-left: 1%;
