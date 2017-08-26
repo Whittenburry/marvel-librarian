@@ -1,14 +1,40 @@
 .li-item {
   display: flex;
-  flex-basis: $max-width / 4.5;
+  flex-basis: 10rem;
   flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
 
-  margin: $gutter 0;
+  margin: $gutter;
 
   &__img-box {
+    position: relative;
+    width: 100%;
+    border-radius: $gutter;
+    overflow: hidden;
+
+    &::before {
+      display: block;
+      padding-top: 100%;
+      content: '';
+    }
 
     &__img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
       width: 100%;
+    }
+  }
+
+  &__text-box {
+    background-color: $brand-grey;
+
+    &__name {
+      margin-left: 1%;
     }
   }
 }
