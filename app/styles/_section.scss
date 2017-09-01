@@ -4,7 +4,9 @@
   margin: 0 0 $gutter * 2;
 
   &__heading {
-    border-bottom: $brand-border;
+    border-bottom: $brand-border-bottom;
+    color: $brand-tan;
+    font-size: 175%;
   }
 
   &__ul {
