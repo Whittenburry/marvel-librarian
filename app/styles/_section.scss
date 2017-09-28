@@ -7,6 +7,10 @@
     border-bottom: $brand-border-bottom;
     color: $brand-tan;
     font-size: 175%;
+
+    &__focus {
+      border-bottom: 0;
+    }
   }
 
   &__ul {
@@ -16,5 +20,31 @@
 
     margin: $gutter 0 0;
     padding: 0 $gutter;
+  }
+}
+
+.img-container {
+  position: relative;
+
+  width: 100%;
+
+  border: $brand-border-one;
+  border-radius: $gutter;
+  overflow: hidden;
+
+  &::before {
+    display: block;
+    padding-top: 100%;
+    content: '';
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
   }
 }
