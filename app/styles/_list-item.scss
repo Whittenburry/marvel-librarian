@@ -5,11 +5,15 @@
   flex-grow: 1;
   flex-shrink: 1;
 
-  max-height: 10rem;
+  max-height: 10.5rem;
 
   margin: $gutter $gutter 0;
 
   overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   &__img-box {
     position: relative;
@@ -41,7 +45,17 @@
     // background-color: $brand-grey;
 
     &__name {
-      margin-left: 1%;
+      margin: 1% 0 0 2%;
+      font-size: 1em;
+
+      &:hover {
+        color: $brand-red;
+        cursor: pointer;
+      }
+
+      &:visited {
+        text-decoration: none;
+      }
     }
   }
 }

@@ -14,9 +14,9 @@
   margin: 0;
 
   &__primary {
-    max-width: (100% / 3);
+    max-width: ($max-content-width / 3);
 
-    margin-right: $gutter * 2.5;
+    margin: $gutter $gutter * 2.5 0 0;
   }
 
   &__secondary {

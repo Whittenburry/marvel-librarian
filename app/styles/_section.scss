@@ -9,6 +9,8 @@
     font-size: 175%;
 
     &__focus {
+      margin: $gutter * 2 0 $gutter * 2 1%;
+
       border-bottom: 0;
     }
   }
