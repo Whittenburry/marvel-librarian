@@ -7,12 +7,17 @@
   <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-  <nav class="nav">
-    <h1 class="nav__logo">Marvel Librarian</h1>
-    <form class="nav__form" action="index.html" method="post">
-      <input type="text" class="nav__form__input" placeholder="Character Search">
-      <button class="nav__form__button">Submit</button>
-    </form>
+  <nav class="nav-container">
+    <div class="nav">
+      <h1 class="nav__logo">Marvel Librarian</h1>
+      <div class="form-container">
+        <form class="form"> <!--removed action="index.html" method="post"-->
+          <input size="1" type="text" class="form__input" placeholder="Character Search">
+          <button class="form__button">Submit</button>
+        </form>
+        <i class="fa fa-search fa-2x form__icon" aria-hidden="true"></i>
+      </div>
+    </div>
   </nav>
   <div class="outer-container">
     <div class="column column__primary">

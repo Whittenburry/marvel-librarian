@@ -1,20 +1,84 @@
+// Navbar Styling
+
+.nav-container {
+  max-width: $max-width;
+  background: $brand-black;
+  // background: #0d0d0f; darker theme
+}
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  max-width: $max-width;
-
-  background: $brand-black;
-  // background: #0d0d0f; darker theme
+  max-width: $max-content-width;
+  margin: auto;
 
   &__logo {
-    max-width: $max-content-width;
-
     margin: 0;
     padding: $gutter * 3 0;
-
     color: $brand-red;
-    font-size: 225%;
+    font-size: 2em;
+  }
+}
+// Form Styling
+
+.form-container {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  align-content: center;
+  max-width: $max-width;
+
+  &__input {
+    width: 200px;
+    margin: 0 $gutter;
+    padding: $gutter;
+    border: $brand-border;
+    border-radius: 0.2rem;
+    outline-color: $brand-light-grey;
+    outline-width: 0.2rem;
+    background: $brand-light-black;
+    color: $brand-tan;
+    font-family: 'Marvel', sans-serif;
+    font-size: 1.1em;
+    resize: horizontal;
+
+    &:active {
+      width: auto;
+      outline-color: $brand-light-grey;
+    }
+
+    &:focus {
+      min-width: 200px;
+    }
+  }
+
+  &__button {
+    align-self: center;
+    padding: $gutter;
+    border: $brand-border-button-transparent;
+    border-radius: 0.2rem;
+    outline: none;
+    background: $brand-red;
+    color: $brand-black;
+    font-family: 'Marvel', sans-serif;
+    font-size: 1em;
+    font-weight: bolder;
+
+    &:hover {
+      border: $brand-border-button-hover;
+      cursor: pointer;
+    }
+
+    &:active {
+      background: darken($brand-red, 10%);
+      color: $brand-tan;
+    }
+  }
+
+  &__icon {
+    margin: 0 $gutter;
   }
 }
