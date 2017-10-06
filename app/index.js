@@ -2,30 +2,40 @@
 
 import 'whatwg-fetch';
 
-// Prevent Default 'Sumbit' on Form | .addEventListener(`submit`, (ev) => { ev.preventDefault(); });
-document.querySelector('.form').addEventListener('submit', (ev) => { ev.preventDefault(); });
-
+// A User can:
+// – see a random character's info on landing page
+// – search for a character
+// – see queried characterResults[]
+// – can click any [item] in characterResults[] to switch to clicked [item]
+//   • Character then populates a page with clickable references
+//   • to all other api end points (links to all other routes
+//   • (e.g. series, comics, etc…)
 const pubKey = 'apikey=7a18a6993fb085a7db47c5326aa3ba70';
 
-const fetchCharacterFocus = function (url) {
-  fetch(`${url}?${pubKey}`)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data)
-  });
-};
+const apiQuery = (url, inputValue) => {
+  const searchUrl = `${url}${inputValue}&${pubKey}`;
 
-const fetchArray = function (url) {
-  fetch(`${url}?${pubKey}`)
+  fetch(searchUrl)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.data.results)
+      const characterInfo = data.data.results[0];
+      console.log(characterInfo);
+
+      const bio = document.getElementById('bio').innerHTML = `
+        ${characterInfo.description}
+      `;
     });
+
+  document.querySelector('.form__input').value = '';
 };
 
-fetchCharacterFocus()
-fetchArray('https://gateway.marvel.com:443/v1/public/characters');
+const form = document.querySelector('.form');
+form.addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  const userInput = document.querySelector('.form__input').value;
 
+  apiQuery('https://gateway.marvel.com:443/v1/public/characters?name=', userInput);
+});
 
 fetch(`https://gateway.marvel.com:443/v1/public/characters?${pubKey}`)
   .then((res) => res.json())
@@ -45,8 +55,8 @@ fetch(`https://gateway.marvel.com:443/v1/public/characters?${pubKey}`)
           <h3 class="li-item__text-box__name">${character.name}</h3>
         </div>
       `;
-      document.querySelector('.li-item__text-box__name').addEventListener('click', () => {
-        console.log(character.urls[2].url);
+      document.querySelector('.li-item__text-box__name').addEventListener('click', (ev) => {
+        ev.preventDefault();
       });
     });
   });
