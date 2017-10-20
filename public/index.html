@@ -2,17 +2,17 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Marvel Librarian</title>
+  <title>Marvelous Librarian</title>
   <link href='https://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/app.css">
 </head>
 <body>
   <nav class="nav-container">
     <div class="nav">
-      <h1 class="nav__logo">Marvel Librarian</h1>
+      <h1 class="nav__logo">Marvelous Librarian</h1>
       <div class="form-container">
         <form class="form"> <!--removed action="index.html" method="post"-->
-          <input size="1" type="text" class="form__input" placeholder="Character Search">
+          <input size="1" type="text" class="form__input" placeholder="Character Search" value="Spider-man">
           <button class="form__button">Submit</button>
         </form>
         <i class="fa fa-search fa-2x form__icon" aria-hidden="true"></i>
@@ -22,18 +22,20 @@
   <div class="outer-container">
     <div class="column column__primary">
       <section class="section">
-        <div class="img-container">
+        <div id="bio__img" class="img-container">
           <!-- <img class="img-container__img" src="http://worldversus.com/img/ironman.jpg" alt=""> -->
-          <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/ironmangoat-profile_image-49d896b9b298eb99-300x300.jpeg" alt="" class="li-item__img-box__img">
+          <!-- <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/ironmangoat-profile_image-49d896b9b298eb99-300x300.jpeg" alt="" class="li-item__img-box__img"> -->
         </div>
-        <h2 class="section__heading section__heading__focus">Iron Man</h2>
-        <p class="section__heading section__heading__focus" id="bio"></p>
+        <div class="name-container">
+          <h2 class="section__heading section__heading__focus"></h2>
+        </div>
+        <div class="section__heading section__heading__focus" id="bio"></div>
       </section>
     </div>
     <div class="column column__secondary">
-      <!-- wireframe for subject view -->
+      <!-- WIREFRAME: COMICS && SERIES -->
       <section class="section">
-        <h2 class="section__heading">Characters</h2>
+        <h2 class="section__heading">Comics</h2>
         <ul class="section__ul">
 
           <!-- <li class="li-item">
@@ -62,11 +64,11 @@
       </section> -->
     </div>
   </div>
-  <script src="/app.js" charset="utf-8"></script>
-</body>
-<div class="footer-container">
-  <footer class="footer">
+  <div class="footer-container">
+    <footer class="footer">
     <a href="http://marvel.com/" target="_blank" class="footer__copyright">Data provided by Marvel. © 2017 MARVEL</a>
   </footer>
 </div>
+  <script src="/app.js" charset="utf-8"></script>
+</body>
 </html>

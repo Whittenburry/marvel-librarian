@@ -1,11 +1,9 @@
 .li-item {
   display: flex;
-  flex-basis: 10rem;
+  flex-basis: 3.5rem;
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
-
-  max-height: 10.5rem;
 
   margin: $gutter $gutter 0;
 
@@ -42,11 +40,14 @@
   }
 
   &__text-box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     // background-color: $brand-grey;
 
     &__name {
-      margin: 1% 0 0 2%;
       font-size: 1em;
+
 
       &:hover {
         color: $brand-red;

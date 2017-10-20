@@ -11,8 +11,11 @@
   max-width: $max-content-width;
   margin: auto;
 
+  color: $brand-red;
+
   &__copyright {
-    padding: $gutter;
+    margin: 0 $gutter;
+    padding: $gutter 0;
 
     color: $brand-red;
     font-size: 1.2rem;
