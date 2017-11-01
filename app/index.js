@@ -27,7 +27,11 @@ const apiQuery = (url, inputValue) => {
       console.log(characterInfo);
 
       document.querySelector('.section__heading__focus').innerText = `${characterInfo.name}`;
-      document.getElementById('bio').innerText = `${characterInfo.description}`;
+      if (characterInfo.description === '') {
+        document.getElementById('bio').innerText = '[no description available]';
+      } else {
+        document.getElementById('bio').innerText = `${characterInfo.description}`;
+      }
       // const totalComics = document.querySelector('.total-comics');
       // totalComics.innerText = `Total Comics: ${characterInfo.comics.available}`;
       const imgBox = document.getElementById('bio__img');
@@ -36,20 +40,21 @@ const apiQuery = (url, inputValue) => {
       `;
 
 // FETCHING comics FROM the userInput apiQuery URI endpoint
-      const comicsURI = `${characterInfo.comics.collectionURI}?limit=50&${pubKey}`;
-      const seriesURI = `${characterInfo.series.collectionURI}?limit=50&${pubKey}`;
-      console.log(comicsURI);
-      console.log(seriesURI);
+      const comicsURI = `${characterInfo.comics.collectionURI}?limit=70&${pubKey}`;
+      const seriesURI = `${characterInfo.series.collectionURI}?limit=70&${pubKey}`;
 
       fetch(comicsURI)
       .then(res => res.json())
       .then((comicsData) => {
-        const comicsList = comicsData.data.results;
+        const unfilteredComics = comicsData.data.results;
+
+// FILTER for IMAGE_NOT_AVAILABLE
+        const comicsList = unfilteredComics.filter(comicImage => comicImage.thumbnail.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available')
         console.log(ts, comicsList);
 
 // Rendering EACH Comic FROM comicsData
         comicsList.forEach((comic) => {
-          const ul = document.querySelector('.section__ul');
+          const ul = document.querySelector('.comics-ul');
           const liItem = document.createElement('li');
           liItem.classList.add('li-item');
           ul.appendChild(liItem).innerHTML = `
@@ -57,7 +62,7 @@ const apiQuery = (url, inputValue) => {
               <img src="${comic.thumbnail.path}/standard_medium.${comic.thumbnail.extension}" alt="" class="li-item__img-box__img" />
             </div>
             <div class="li-item__text-box">
-              <h3 class="li-item__text-box__name">id: ${comic.id}</h3>
+              <h3 class="li-item__text-box__name">#${comic.issueNumber}</h3>
             </div>
           `;
         });
@@ -67,35 +72,40 @@ const apiQuery = (url, inputValue) => {
       fetch(seriesURI)
       .then(res => res.json())
       .then((seriesData) => {
-        const seriesList = seriesData.data.results;
+        const unfilteredSeries = seriesData.data.results;
+
+// FILTER for IMGAGE_NOT_AVAILABLE
+        const seriesList = unfilteredSeries.filter(seriesImage => seriesImage.thumbnail.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available');
         console.log(seriesList);
 
 // Rendering EACH series FROM seriesData
-        // seriesList.forEach((series) => {
-        //   const ul = document.querySelector('.section__ul');
-        //   const liItem = document.createElement('li');
-        //   liItem.classList.add('li-item');
-        //   ul.appendChild(liItem).innerHTML = `
-        //     <div class="li-item__img-box">
-        //       <img src="${series.thumbnail.path}/standard_medium.${series.thumbnail.extension}" alt="" class="li-item__img-box__img" />
-        //     </div>
-        //     <div class="li-item__text-box">
-        //       <h3 class="li-item__text-box__name">id: ${series.id}</h3>
-        //     </div>
-        //   `;
-        // });
+        seriesList.forEach((series) => {
+          const ul = document.querySelector('.series-ul');
+          const liItem = document.createElement('li');
+          liItem.classList.add('li-item');
+          ul.appendChild(liItem).innerHTML = `
+            <div class="li-item__img-box">
+              <img src="${series.thumbnail.path}/standard_medium.${series.thumbnail.extension}" alt="" class="li-item__img-box__img" />
+            </div>
+            <div class="li-item__text-box">
+              <h3 class="li-item__text-box__name">id: ${series.id}</h3>
+            </div>
+          `;
+        });
       });
     });
+
 // RESETING input && rendered VALUES
   document.querySelector('.form__input').value = '';
-  document.querySelector('.section__ul').innerHTML = '';
+  document.querySelector('.comics-ul').innerHTML = '';
+  document.querySelector('.series-ul').innerHTML = '';
 };
 
 // LANDING PAGE CHARACTER
 const landingCharacter = 'Spider-man';
 apiQuery('https://gateway.marvel.com:443/v1/public/characters?name=', landingCharacter);
 
-
+// CHARACTER SEARCH FORM
 const form = document.querySelector('.form');
 form.addEventListener('submit', (ev) => {
   ev.preventDefault();
